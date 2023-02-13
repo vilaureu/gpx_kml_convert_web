@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <title>GPX-to-KML Converter</title>
+  </head>
+  <body class="container">
+    <div class="row mt-3">
+      <div class="col">
+        <h1>Converter From GPX to KML</h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <noscript>
+          This page contains webassembly and javascript content, please enable
+          javascript in your browser.
+        </noscript>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <div id="errorContainer" class="alert alert-danger d-none" role="alert">
+          <h5 class="alert-heading">Conversion failed!</h5>
+          <span id="errorContent"></span>
+        </div>
+
+        <div class="mt-3 mb-3">
+          <label for="fileInput" class="form-label">
+            GPX File for Conversion
+          </label>
+          <input
+            type="file"
+            accept=".gpx,application/gpx+xml"
+            class="form-control"
+            id="fileInput"
+            placeholder="tour.gpx"
+          />
+        </div>
+
+        <div
+          id="spinner"
+          class="spinner-border text-primary d-none"
+          role="status"
+        >
+          <span class="visually-hidden">Converting...</span>
+        </div>
+
+        <a id="download" role="button" class="btn btn-primary d-none">
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="row border-top mt-3 pt-3">
+      <div class="col">
+        <p>Copyright 2021-2023 Viktor Reusch</p>
+
+        <p>
+          This program is free software: you can redistribute it and/or modify
+          it under the terms of the GNU Affero General Public License as
+          published by the Free Software Foundation, either version 3 of the
+          License, or (at your option) any later version.
+        </p>
+
+        <p>
+          This program is distributed in the hope that it will be useful, but
+          WITHOUT ANY WARRANTY; without even the implied warranty of
+          MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+          Affero General Public License for more details.
+        </p>
+
+        <p>
+          You should have received a copy of the GNU Affero General Public
+          License along with this program. If not, see
+          http://www.gnu.org/licenses/.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
