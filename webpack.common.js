@@ -36,6 +36,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: "src/index.html",
+      version: process.env.npm_package_version,
     }),
     new MiniCssExtractPlugin({
       filename: "[name].[contenthash].css",
