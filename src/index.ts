@@ -59,7 +59,7 @@ async function onChange(event: Event): Promise<void> {
   const reader = new FileReader();
   const url = (await new Promise((r) => {
     reader.onload = () => r(reader.result as string);
-    reader.readAsDataURL(new Blob([kml]));
+    reader.readAsDataURL(new Blob([new Uint8Array(kml)]));
   })) as string;
   const base64 = url.replace(/^data:[^;]*;base64,/, "");
 
