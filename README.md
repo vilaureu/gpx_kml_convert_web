@@ -44,7 +44,7 @@ This package uses the following libraries:
 
 ## License
 
-Copyright 2021-2023 Viktor Reusch
+Copyright 2021-2026 Viktor Reusch
 
 This program is free software: you can redistribute it and/or modify it under
 the terms of the GNU Affero General Public License as published by the Free
