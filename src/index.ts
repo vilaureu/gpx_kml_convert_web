@@ -2,10 +2,10 @@ import(
   /* webpackChunkName: "bootstrap" */ "bootstrap/dist/css/bootstrap.min.css"
 );
 
-let download: HTMLLinkElement = undefined;
-let errorContainer: HTMLElement = undefined;
-let errorContent: HTMLElement = undefined;
-let spinner: HTMLElement = undefined;
+let download!: HTMLLinkElement;
+let errorContainer!: HTMLElement;
+let errorContent!: HTMLElement;
+let spinner!: HTMLElement;
 
 document.addEventListener("readystatechange", () => {
   download = document.getElementById("download") as HTMLLinkElement;
@@ -14,7 +14,7 @@ document.addEventListener("readystatechange", () => {
   spinner = document.getElementById("spinner") as HTMLElement;
 
   const input = document.getElementById("fileInput") as HTMLInputElement;
-  input.value = null;
+  input.value = "";
   input.addEventListener("change", onChange);
 });
 
@@ -23,13 +23,14 @@ async function onChange(event: Event): Promise<void> {
   errorContainer.classList.add("d-none");
 
   const input = event.target as HTMLInputElement;
-  if (input.files.length < 1) {
+  const files = input.files;
+  if (!files || files.length < 1) {
     return;
   }
 
   spinner.classList.remove("d-none");
 
-  const file = input.files[0];
+  const file = files[0];
   let name = file.name;
   if (name.endsWith(".gpx")) {
     name = name.substring(0, file.name.length - 4);
@@ -50,7 +51,7 @@ async function onChange(event: Event): Promise<void> {
   try {
     kml = gpxKmlConvert.convert(new Uint8Array(arrayBuffer));
   } catch (e) {
-    displayError(e);
+    displayError(e instanceof Error ? e : new Error(String(e)));
     return;
   } finally {
     spinner.classList.add("d-none");
