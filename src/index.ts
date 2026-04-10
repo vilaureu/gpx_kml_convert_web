@@ -2,10 +2,10 @@ import(
   /* webpackChunkName: "bootstrap" */ "bootstrap/dist/css/bootstrap.min.css"
 );
 
-let download!: HTMLLinkElement;
-let errorContainer!: HTMLElement;
-let errorContent!: HTMLElement;
-let spinner!: HTMLElement;
+let download: HTMLLinkElement;
+let errorContainer: HTMLElement;
+let errorContent: HTMLElement;
+let spinner: HTMLElement;
 
 document.addEventListener("readystatechange", () => {
   download = document.getElementById("download") as HTMLLinkElement;
